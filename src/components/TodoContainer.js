@@ -13,7 +13,7 @@ class TodoContainer extends React.Component {
       {
         id: 2,
         title: "Develop website and add content",
-        completed: false
+        completed: true
       },
       {
         id: 3,
@@ -23,11 +23,25 @@ class TodoContainer extends React.Component {
     ]
    };
 
+   handleChange = (id) => {
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          }
+        }
+        return todo
+      })
+    }));
+  }
+
   render() {
     return (
       <React.Fragment>
         <Header />
-        <TodosList todos={this.state.todos} />
+        <TodosList todos={this.state.todos} handleChangeProps={this.handleChange}/>
       </React.Fragment>
     )
   }

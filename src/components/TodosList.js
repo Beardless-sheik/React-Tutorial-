@@ -7,7 +7,11 @@ class ToDoList extends React.Component {
       <React.Fragment>
         <ul>
           {this.props.todos.map(todo => (
-            <ToDoItem key={todo.id} todo={todo} />
+            <ToDoItem 
+              key={todo.id} 
+              todo={todo} 
+              handleChangeProps={this.props.handleChangeProps}
+            />
           ))}
         </ul>
       </React.Fragment>
