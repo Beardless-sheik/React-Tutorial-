@@ -1,33 +1,28 @@
-import React from "react"; 
+import React, { useState } from "react"; 
 import styles from "./TodoItem.module.css";
 
-class ToDoItem extends React.Component {
-  state = {
-    editing: false,
+const ToDoItem = (props) => {
+  const [editing, setEditing] = useState(false)
+
+  const handleEditing = () => {
+    setEditing(true)
   }
 
-  handleEditing = () => {
-    this.setState({
-      editing: true,
-    })
-  }
-
-  handleUpdatedDone = event => {
+  const handleUpdatedDone = event => {
     if (event.key === "Enter") {
-      this.setState({ editing: false })
+      setEditing(false)
     }
   }
-  
-  render() {
+
     let viewMode = {}
     let editMode = {}
-    if (this.state.editing) {
+    if (editing) {
       viewMode.display = "none"
     } else {
       editMode.display = "none"
     }
 
-    const { completed, id, title } = this.props.todo
+    const { completed, id, title } = props.todo
     const completedStyle = {
       fontStyle: "italic",
       color: "#595959",
@@ -41,17 +36,17 @@ class ToDoItem extends React.Component {
           <input type="text" className={styles.textInput} style={editMode} 
             value={title}
             onChange={e => {
-              this.props.updateTitleProps(e.target.value, id)
+              props.updateTitleProps(e.target.value, id)
             }} 
-            onKeyDown={this.handleUpdatedDone}
+            onKeyDown={handleUpdatedDone}
           />
-          <div onDoubleClick={this.handleEditing} style={viewMode}>
+          <div onDoubleClick={handleEditing} style={viewMode}>
             <input className={styles.checkbox}
               type="checkbox" 
               checked={completed}
-              onChange={() => this.props.handleChangeProps(id)}
+              onChange={() => props.handleChangeProps(id)}
             />
-            <button onClick={() => this.props.handleDeletionProps(id)}>Delete</button>
+            <button onClick={() => props.handleDeletionProps(id)}>Delete</button>
             <span style={completed ? completedStyle : null}>
               {title}
             </span>
@@ -59,7 +54,6 @@ class ToDoItem extends React.Component {
         </li>
       </div>
     )
-  }
-}
+};
 
 export default ToDoItem;
