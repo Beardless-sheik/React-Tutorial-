@@ -1,17 +1,17 @@
 import React from "react"; 
 import ToDoItem from "./TodoItem";
 
-const ToDoList = () => {
+const ToDoList = (props) => {
     return(
       <React.Fragment>
         <ul>
-          {this.props.todos.map(todo => (
+          {props.todos.map(todo => (
             <ToDoItem 
               key={todo.id} 
               todo={todo} 
-              handleChangeProps={this.props.handleChangeProps}
-              handleDeletionProps={this.props.handleDeletionProps}
-              updateTitleProps={this.props.updateTitleProps}
+              handleChangeProps={props.handleChangeProps}
+              handleDeletionProps={props.handleDeletionProps}
+              updateTitleProps={props.updateTitleProps}
             />
           ))}
         </ul>
