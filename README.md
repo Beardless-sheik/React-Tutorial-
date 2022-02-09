@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# React-To-Do-List
+Repository with my code following this tutorial: "https://ibaslogic.com/react-tutorial-for-beginners/"
+
+Has 2 sources files........one that has the toDo List done in a class based way and the other folder has it in a functional based way
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
