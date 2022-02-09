@@ -1,8 +1,7 @@
 import React from "react"; 
 import ToDoItem from "./TodoItem";
 
-class ToDoList extends React.Component {
-  render() {
+const ToDoList = () => {
     return(
       <React.Fragment>
         <ul>
@@ -18,7 +17,6 @@ class ToDoList extends React.Component {
         </ul>
       </React.Fragment>
     )
-  }
 }
 
 export default ToDoList;
